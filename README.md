@@ -82,4 +82,4 @@ holding the picked cube.
   waypoint -- see `schema/examples/obstacle_pick_place.yaml` and the demo
   above.
 
-For more details, see [Architecture](docs/architecture.md).
+For more details, see [Architecture & Functional Design](docs/architecture.md).

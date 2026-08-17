@@ -10,9 +10,9 @@ rendering and collision.
 ```
 robot/
   build_kr35_mjcf.py    generates the robot MJCF from real KUKA joint/mesh/inertial data
-  kr35_r1840_3_hw.xml    generated output (run build_kr35_mjcf.py to refresh)
-  tune_gains.py          empirical actuator-gain settle test (see "Design overview" below)
-  meshes/kr35/            real KUKA visual + collision meshes (see ATTRIBUTION.md)
+  kr35_r1840_3_hw.xml   generated output (run build_kr35_mjcf.py to refresh)
+  tune_gains.py         empirical actuator-gain settle test (see "Design overview" below)
+  meshes/kr35/          real KUKA visual + collision meshes (see ATTRIBUTION.md)
 schema/
   scenario.schema.json  JSON Schema for scenario YAML files
   examples/
@@ -20,11 +20,11 @@ schema/
     obstacle_pick_place.yaml   same task, with a wall between pick and place
 runner/
   geometry.py           quaternion/pose helpers
-  scene_builder.py       scenario YAML -> compiled MuJoCo model (mujoco.MjSpec)
-  ik.py                  damped-least-squares IK w/ random-restart fallback
-  planner.py              joint-space RRT-Connect w/ real collision checking (transit leg only)
-  trajectory.py           waypoint state machine, suction engage/release, success eval
-  runner.py               CLI: validate, run, batch, optional MP4 video
+  scene_builder.py      scenario YAML -> compiled MuJoCo model (mujoco.MjSpec)
+  ik.py                 damped-least-squares IK w/ random-restart fallback
+  planner.py            joint-space RRT-Connect w/ real collision checking (transit leg only)
+  trajectory.py         waypoint state machine, suction engage/release, success eval
+  runner.py             CLI: validate, run, batch, optional MP4 video
 ```
 
 ## Prerequisites

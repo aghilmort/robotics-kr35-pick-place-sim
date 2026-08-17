@@ -1,0 +1,122 @@
+<mujoco model="kr35_r1840_3_hw">
+  <compiler angle="radian" autolimits="true"/>
+  <option gravity="0 0 -9.81" integrator="implicitfast"/>
+  <asset>
+    <mesh name="base_link_visual" file="meshes/kr35/visual/base_link.stl"/>
+    <mesh name="base_link_collision" file="meshes/kr35/collision/base_link.stl"/>
+    <mesh name="link_1_visual" file="meshes/kr35/visual/link_1.stl"/>
+    <mesh name="link_1_collision" file="meshes/kr35/collision/link_1.stl"/>
+    <mesh name="link_2_visual" file="meshes/kr35/visual/link_2.stl"/>
+    <mesh name="link_2_collision" file="meshes/kr35/collision/link_2.stl"/>
+    <mesh name="link_3_visual" file="meshes/kr35/visual/link_3.stl"/>
+    <mesh name="link_3_collision" file="meshes/kr35/collision/link_3.stl"/>
+    <mesh name="link_4_visual" file="meshes/kr35/visual/link_4.stl"/>
+    <mesh name="link_4_collision" file="meshes/kr35/collision/link_4.stl"/>
+    <mesh name="link_5_visual" file="meshes/kr35/visual/link_5.stl"/>
+    <mesh name="link_5_collision" file="meshes/kr35/collision/link_5.stl"/>
+    <mesh name="link_6_visual" file="meshes/kr35/visual/link_6.stl"/>
+    <mesh name="link_6_collision" file="meshes/kr35/collision/link_6.stl"/>
+  </asset>
+  <default>
+    <default class="kr35_visual">
+      <geom type="mesh" rgba="0.96 0.42 0.02 1" contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="kr35_collision">
+      <geom type="mesh" group="3" rgba="1 0 0 0.3"/>
+    </default>
+  </default>
+  <worldbody>
+    <body name="base_link" pos="0 0 0">
+      <inertial pos="-0.008719 0.000062 0.150519" quat="0.976168 -0.057344 -0.209174 -0.007345" mass="53.7647" diaginertia="0.826710 1.053298 1.067619"/>
+      <geom class="kr35_visual" mesh="base_link_visual" pos="0.000000 0.000000 0.000000" quat="1.000000 0.000000 0.000000 0.000000"/>
+      <geom class="kr35_collision" mesh="base_link_collision" pos="0.000000 0.000000 0.000000" quat="1.000000 0.000000 0.000000 0.000000"/>
+      <body name="link_1" pos="0.000000 0.000000 0.263800" quat="0.000000 1.000000 0.000000 0.000000">
+        <joint name="joint_1" type="hinge" axis="0 0 1" range="-3.228859 3.228859" damping="40.0" frictionloss="4.0" armature="0.15"/>
+        <inertial pos="0.071941 -0.016483 -0.104504" quat="0.908783 0.413553 -0.012372 -0.054170" mass="81.4493" diaginertia="1.629331 1.487907 1.864829"/>
+        <geom class="kr35_visual" mesh="link_1_visual" pos="0.000000 -0.000000 0.263800" quat="0.000000 -1.000000 0.000000 0.000000"/>
+        <geom class="kr35_collision" mesh="link_1_collision" pos="0.000000 -0.000000 0.263800" quat="0.000000 -1.000000 0.000000 0.000000"/>
+        <body name="link_2" pos="0.150000 0.093500 -0.179700" quat="0.707107 0.707107 0.000000 0.000000">
+          <joint name="joint_2" type="hinge" axis="0 0 1" range="-3.228859 1.134464" damping="40.0" frictionloss="4.0" armature="0.15"/>
+          <inertial pos="0.303358 -0.000480 -0.070226" quat="0.474656 -0.536101 -0.525170 -0.459885" mass="53.7270" diaginertia="5.991676 0.346568 6.013414"/>
+          <geom class="kr35_visual" mesh="link_2_visual" pos="-0.443500 -0.150000 0.093500" quat="0.500000 0.500000 0.500000 0.500000"/>
+          <geom class="kr35_collision" mesh="link_2_collision" pos="-0.443500 -0.150000 0.093500" quat="0.500000 0.500000 0.500000 0.500000"/>
+          <body name="link_3" pos="0.810000 0.000000 -0.022500" quat="1.000000 0.000000 0.000000 0.000000">
+            <joint name="joint_3" type="hinge" axis="0 0 1" range="-2.094395 3.106686" damping="40.0" frictionloss="4.0" armature="0.15"/>
+            <inertial pos="0.119104 -0.093792 0.091246" quat="0.827075 0.132839 -0.002410 0.546164" mass="33.3026" diaginertia="0.592468 0.464024 0.775008"/>
+            <geom class="kr35_visual" mesh="link_3_visual" pos="-0.150000 1.253500 0.116000" quat="0.707107 0.707107 0.000000 0.000000"/>
+            <geom class="kr35_collision" mesh="link_3_collision" pos="-0.150000 1.253500 0.116000" quat="0.707107 0.707107 0.000000 0.000000"/>
+            <body name="link_4" pos="0.300000 -0.200000 0.116000" quat="0.500000 0.500000 -0.500000 -0.500000">
+              <joint name="joint_4" type="hinge" axis="0 0 1" range="-3.141593 3.141593" damping="40.0" frictionloss="4.0" armature="0.15"/>
+              <inertial pos="-0.000141 -0.075278 -0.290127" quat="-0.435848 -0.557723 0.533521 -0.462965" mass="15.3552" diaginertia="0.055357 0.314310 0.324704"/>
+              <geom class="kr35_visual" mesh="link_4_visual" pos="-1.453500 0.000000 0.450000" quat="0.707107 0.000000 0.707107 -0.000000"/>
+              <geom class="kr35_collision" mesh="link_4_collision" pos="-1.453500 0.000000 0.450000" quat="0.707107 0.000000 0.707107 -0.000000"/>
+              <body name="link_5" pos="0.000000 -0.053000 -0.556900" quat="0.500000 -0.500000 0.500000 0.500000">
+                <joint name="joint_5" type="hinge" axis="0 0 1" range="-3.141593 3.141593" damping="40.0" frictionloss="4.0" armature="0.15"/>
+                <inertial pos="0.006770 -0.000050 -0.007140" quat="0.004313 0.391458 -0.006496 0.920163" mass="4.5900" diaginertia="0.008466 0.011115 0.012637"/>
+                <geom class="kr35_visual" mesh="link_5_visual" pos="-1.006900 1.453500 0.053000" quat="0.707107 0.707107 -0.000000 -0.000000"/>
+                <geom class="kr35_collision" mesh="link_5_collision" pos="-1.006900 1.453500 0.053000" quat="0.707107 0.707107 -0.000000 -0.000000"/>
+                <body name="link_6" pos="0.051500 0.000000 0.053000" quat="0.500000 0.500000 -0.500000 -0.500000">
+                  <joint name="joint_6" type="hinge" axis="0 0 1" range="-6.248279 6.248279" damping="40.0" frictionloss="4.0" armature="0.15"/>
+                  <inertial pos="-0.000010 -0.000010 -0.019700" quat="0.708716 0.000113 -0.000009 -0.705494" mass="1.2400" diaginertia="0.001329 0.001239 0.002280"/>
+                  <geom class="kr35_visual" mesh="link_6_visual" pos="-1.453500 -0.000000 1.058400" quat="0.707107 0.000000 0.707107 -0.000000"/>
+                  <geom class="kr35_collision" mesh="link_6_collision" pos="-1.453500 -0.000000 1.058400" quat="0.707107 0.000000 0.707107 -0.000000"/>
+                  <body name="flange" pos="0.000000 0.000000 -0.038500" quat="0.707107 0.000000 0.707107 0.000000">
+                    <site name="flange_site" size="0.01" rgba="0 1 0 1"/>
+                    <geom type="cylinder" size="0.06 0.014" pos="0 0 0" rgba="0.08 0.08 0.09 1" contype="0" conaffinity="0"/>
+                    <body name="suction_gripper" pos="0 0 0">
+                      <geom type="cylinder" size="0.035 0.06" pos="0 0 0.06" rgba="0.15 0.15 0.15 1" contype="0" conaffinity="0"/>
+                      <body name="suction_cup" pos="0 0 0.15">
+                        <geom name="suction_cup_geom" type="cylinder" size="0.025 0.008" rgba="0.05 0.05 0.05 1" friction="1.0 0.01 0.001" solimp="0.95 0.99 0.001" solref="0.004 1"/>
+                        <site name="suction_site" pos="0 0 0.008" size="0.005" rgba="1 0 0 1"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="base_link" body2="link_1"/>
+    <exclude body1="base_link" body2="link_2"/>
+    <exclude body1="base_link" body2="link_3"/>
+    <exclude body1="base_link" body2="link_4"/>
+    <exclude body1="base_link" body2="link_5"/>
+    <exclude body1="base_link" body2="link_6"/>
+    <exclude body1="link_1" body2="link_2"/>
+    <exclude body1="link_1" body2="link_3"/>
+    <exclude body1="link_1" body2="link_4"/>
+    <exclude body1="link_1" body2="link_5"/>
+    <exclude body1="link_1" body2="link_6"/>
+    <exclude body1="link_2" body2="link_3"/>
+    <exclude body1="link_2" body2="link_4"/>
+    <exclude body1="link_2" body2="link_5"/>
+    <exclude body1="link_2" body2="link_6"/>
+    <exclude body1="link_3" body2="link_4"/>
+    <exclude body1="link_3" body2="link_5"/>
+    <exclude body1="link_3" body2="link_6"/>
+    <exclude body1="link_4" body2="link_5"/>
+    <exclude body1="link_4" body2="link_6"/>
+    <exclude body1="link_5" body2="link_6"/>
+  </contact>
+  <actuator>
+    <position name="act_joint_1" joint="joint_1" kp="200000" kv="12000" ctrlrange="-3.228859 3.228859" forcerange="-1920.000 1920.000"/>
+    <position name="act_joint_2" joint="joint_2" kp="200000" kv="12000" ctrlrange="-3.228859 1.134464" forcerange="-1721.000 1721.000"/>
+    <position name="act_joint_3" joint="joint_3" kp="200000" kv="12000" ctrlrange="-2.094395 3.106686" forcerange="-692.794 692.794"/>
+    <position name="act_joint_4" joint="joint_4" kp="200000" kv="12000" ctrlrange="-3.141593 3.141593" forcerange="-134.259 134.259"/>
+    <position name="act_joint_5" joint="joint_5" kp="200000" kv="12000" ctrlrange="-3.141593 3.141593" forcerange="-152.721 152.721"/>
+    <position name="act_joint_6" joint="joint_6" kp="200000" kv="12000" ctrlrange="-6.248279 6.248279" forcerange="-68.639 68.639"/>
+  </actuator>
+  <sensor>
+    <touch name="suction_touch" site="suction_site"/>
+    <jointpos name="sensor_joint_1_pos" joint="joint_1"/>
+    <jointpos name="sensor_joint_2_pos" joint="joint_2"/>
+    <jointpos name="sensor_joint_3_pos" joint="joint_3"/>
+    <jointpos name="sensor_joint_4_pos" joint="joint_4"/>
+    <jointpos name="sensor_joint_5_pos" joint="joint_5"/>
+    <jointpos name="sensor_joint_6_pos" joint="joint_6"/>
+  </sensor>
+</mujoco>

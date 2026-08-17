@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 880" width="1040" height="880" role="img" aria-label="KR35 kinematic chain and the suction body/site frames">
+  <title>KR35 kinematic chain and the suction body/site frames</title>
+  
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#898781"/>
+    </marker>
+    <marker id="arrowInk" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e34948"/>
+    </marker>
+    <marker id="arrowViolet" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a3aa7"/>
+    </marker>
+    <marker id="arrowMagenta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e87ba4"/>
+    </marker>
+    <marker id="arrowCritical" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d03b3b"/>
+    </marker>
+    <marker id="arrowGood" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0ca30c"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1040" height="880" fill="#fcfcfb"/>
+<text x="40.0" y="40.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="400" fill="#52514e" text-anchor="start">Body tree (robot/build_kr35_mjcf.py) — every body/joint below is nested inside its parent, matching the KUKA xacro exactly</text>
+<text x="40.0" y="58.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#898781" text-anchor="start">Each link body also carries a real KUKA mesh pair (visual + collision) at its own MESH_ORIGINS offset — not shown in this chain view, see the module map</text>
+<line x1="96" y1="100" x2="96" y2="724" stroke="#e1e0d9" stroke-width="3"/>
+<circle cx="96" cy="100" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="95.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">base_link</text>
+<text x="122.0" y="115.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">real mesh spans floor to shoulder, mounted at world z = 0</text>
+<circle cx="96" cy="178" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="173.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_1 -&gt; link_1</text>
+<text x="122.0" y="193.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">base yaw · range ±185.0° · 180°/s</text>
+<circle cx="96" cy="256" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="251.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_2 -&gt; link_2</text>
+<text x="122.0" y="271.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">shoulder · range −185.0°…+65.0° · 180°/s</text>
+<circle cx="96" cy="334" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="329.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_3 -&gt; link_3</text>
+<text x="122.0" y="349.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">elbow · range −120.0°…+178.0° · 200°/s</text>
+<circle cx="96" cy="412" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="407.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_4 -&gt; link_4</text>
+<text x="122.0" y="427.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">forearm roll · range ±180.0° · 400°/s</text>
+<circle cx="96" cy="490" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="485.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_5 -&gt; link_5</text>
+<text x="122.0" y="505.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">wrist bend · range ±180.0° · 390°/s</text>
+<circle cx="96" cy="568" r="8.5" fill="#fcfcfb" stroke="#2a78d6" stroke-width="3"/>
+<text x="122.0" y="563.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">joint_6 -&gt; link_6</text>
+<text x="122.0" y="583.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">wrist rotate · range ±358.0° · 420°/s</text>
+<circle cx="96" cy="646" r="8.5" fill="#fcfcfb" stroke="#eb6834" stroke-width="3"/>
+<text x="122.0" y="641.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">flange</text>
+<text x="122.0" y="661.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">fixed offset (0, 0, −0.0385 m) — ROS-Industrial tool-flange convention</text>
+<circle cx="96" cy="724" r="8.5" fill="#fcfcfb" stroke="#eb6834" stroke-width="3"/>
+<text x="122.0" y="719.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">suction_gripper -&gt; suction_cup</text>
+<text x="122.0" y="739.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">suction_cup is the BODY the weld equality constraint attaches to</text>
+<path d="M106,736 L106,774 L122,774" fill="none" stroke="#898781" stroke-width="1.4" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,3" marker-end="url(#arrow)"/>
+<text x="130.0" y="778.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#0b0b0b" text-anchor="start">suction_site</text>
+<text x="130.0" y="796.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#52514e" text-anchor="start">SITE, local pos (0,0,0.008m) — what IK actually targets</text>
+<text x="40.0" y="856.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#898781" text-anchor="start">Joint origins, axes, and limits are copied verbatim from kuka_cybertech_support's kr35_r1840_3_hw_macro.xacro (KUKA ROS2 description).</text>
+<rect x="560.0" y="100.0" width="420.0" height="430.0" rx="12" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="560.0" y="100.0" width="6" height="430.0" rx="3" fill="#4a3aa7"/>
+<text x="584.0" y="134.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#0b0b0b" text-anchor="start">Why two frames for one cup</text>
+<text x="584.0" y="158.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">The suction weld equality constraint's body1</text>
+<text x="584.0" y="177.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">is the suction_cup BODY (mujoco.mjEQ_WELD in</text>
+<text x="584.0" y="196.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">scene_builder.py) — but the IK solver and every</text>
+<text x="584.0" y="215.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">waypoint in trajectory.py target the suction_site</text>
+<text x="584.0" y="234.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">SITE instead, offset 8mm along the cup's local +Z.</text>
+<circle cx="650" cy="335" r="7" fill="#eb6834"/>
+<text x="666.0" y="339.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#0b0b0b" text-anchor="start">suction_cup body origin</text>
+<path d="M650,324 L650,276" fill="none" stroke="#52514e" stroke-width="1.8" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="650" cy="265" r="7" fill="#1baf7a"/>
+<text x="666.0" y="269.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#0b0b0b" text-anchor="start">suction_site (+8mm local Z)</text>
+<text x="666.0" y="304.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="400" fill="#898781" text-anchor="start">SUCTION_SITE_LOCAL_POS</text>
+<text x="584.0" y="400.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">Every time trajectory.py captures a grasp (at</text>
+<text x="584.0" y="419.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">suction_engaged) or re-targets a place pose, it</text>
+<text x="584.0" y="438.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">converts between these two frames with the same</text>
+<text x="584.0" y="457.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">compose() / invert() helpers from geometry.py —</text>
+<text x="584.0" y="476.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">never a re-derivation, always the one fixed offset.</text>
+<rect x="560.0" y="560.0" width="420.0" height="190.0" rx="12" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="560.0" y="560.0" width="6" height="190.0" rx="3" fill="#1baf7a"/>
+<text x="584.0" y="594.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#0b0b0b" text-anchor="start">The ±°/s figures aren't decoration</text>
+<text x="584.0" y="618.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">_move_to() in trajectory.py times every waypoint's</text>
+<text x="584.0" y="637.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">smoothstep interpolation from MAX_JOINT_VEL — the</text>
+<text x="584.0" y="656.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">same per-joint rad/s limits listed on the left — scaled</text>
+<text x="584.0" y="675.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">by task.motion.joint_speed_scale (default 0.5). No</text>
+<text x="584.0" y="694.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">joint is ever commanded faster than the real KR35 spec</text>
+<text x="584.0" y="713.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">(though it can still be commanded faster than its real</text>
+<text x="584.0" y="732.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="400" fill="#52514e" text-anchor="start">torque can achieve — see README's Known Limitations).</text>
+</svg>

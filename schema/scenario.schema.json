@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/pick_place_scenario.schema.json",
+  "title": "Pick-and-Place Scenario",
+  "description": "A single runnable MuJoCo pick-and-place episode: robot config, scene objects/fixtures, task definition, and success criteria.",
+  "type": "object",
+  "required": ["name", "robot", "scene", "task", "success_criteria"],
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "description": "Unique scenario identifier." },
+    "description": { "type": "string" },
+    "seed": {
+      "type": "integer",
+      "description": "RNG seed for any 'randomize' blocks in this file. Omit for a fixed, non-randomized scenario."
+    },
+
+    "robot": {
+      "type": "object",
+      "required": ["model", "end_effector"],
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["kr35_r1840_3_hw"],
+          "description": "Name of the robot asset under robot/. Only kr35_r1840_3_hw exists today."
+        },
+        "base_pose": { "$ref": "#/$defs/pose", "description": "Robot base mounting pose in world frame. Defaults to origin." },
+        "home_joint_positions": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 6,
+          "maxItems": 6,
+          "description": "Starting joint angles (rad), one per joint_1..joint_6. Defaults to all zeros."
+        },
+        "end_effector": {
+          "type": "string",
+          "enum": ["suction"],
+          "description": "Only suction is modeled today; kept as a field for future grippers."
+        },
+        "suction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "max_payload_kg": {
+              "type": "number", "exclusiveMinimum": 0,
+              "description": "If the picked object's mass exceeds this, the runner reports a suction-overload failure instead of engaging the weld."
+            },
+            "engage_max_distance_m": {
+              "type": "number", "exclusiveMinimum": 0, "default": 0.01,
+              "description": "Max gap between suction_site and the nearest object surface point for a seal to be considered formed."
+            },
+            "engage_max_misalignment_deg": {
+              "type": "number", "minimum": 0, "maximum": 90, "default": 15,
+              "description": "Max angle between the cup's approach axis and the local contact normal for a seal to form."
+            }
+          }
+        }
+      }
+    },
+
+    "scene": {
+      "type": "object",
+      "required": ["objects"],
+      "additionalProperties": false,
+      "properties": {
+        "ground_friction": {
+          "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3,
+          "description": "[sliding, torsional, rolling] friction coefficients for the ground plane."
+        },
+        "fixtures": {
+          "type": "array",
+          "description": "Static, non-graspable scene geometry (tables, bins, trays). Never randomized.",
+          "items": { "$ref": "#/$defs/fixture" }
+        },
+        "objects": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Dynamic (free-jointed) objects, at least one of which is normally the pick target.",
+          "items": { "$ref": "#/$defs/object" }
+        }
+      }
+    },
+
+    "task": {
+      "type": "object",
+      "required": ["pick", "place"],
+      "additionalProperties": false,
+      "properties": {
+        "pick": {
+          "type": "object",
+          "required": ["object_id"],
+          "additionalProperties": false,
+          "properties": {
+            "object_id": { "type": "string", "description": "Must match an id in scene.objects." },
+            "grasp_point": {
+              "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3,
+              "description": "Grasp point in the object's local frame. Defaults to the object's top-center face."
+            },
+            "approach_axis": {
+              "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3,
+              "default": [0, 0, -1],
+              "description": "Unit vector (world frame) the suction cup approaches the grasp point along. Default: straight down."
+            }
+          }
+        },
+        "place": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "target_pose": { "$ref": "#/$defs/pose" },
+            "target_fixture_id": {
+              "type": "string",
+              "description": "Alternative to target_pose: place centered on top of this fixture's surface."
+            }
+          },
+          "oneOf": [
+            { "required": ["target_pose"] },
+            { "required": ["target_fixture_id"] }
+          ]
+        },
+        "motion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "approach_height_m": { "type": "number", "exclusiveMinimum": 0, "default": 0.15, "description": "Clearance height used for the pre-pick/pre-place hover waypoints and transit." },
+            "joint_speed_scale": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "default": 0.5, "description": "Fraction of each joint's max velocity used for waypoint interpolation." }
+          }
+        }
+      }
+    },
+
+    "success_criteria": {
+      "type": "object",
+      "required": ["position_tolerance_m", "orientation_tolerance_deg", "settle_time_s", "max_sim_time_s"],
+      "additionalProperties": false,
+      "properties": {
+        "position_tolerance_m": { "type": "number", "exclusiveMinimum": 0 },
+        "orientation_tolerance_deg": { "type": "number", "exclusiveMinimum": 0 },
+        "settle_time_s": {
+          "type": "number", "exclusiveMinimum": 0,
+          "description": "Object must stay within tolerance and near-zero velocity for this long, continuously, to count as placed."
+        },
+        "max_sim_time_s": { "type": "number", "exclusiveMinimum": 0, "description": "Episode timeout; exceeding it without success is a failure." },
+        "forbidden_contacts": {
+          "type": "array", "items": { "type": "string" },
+          "description": "Optional list of fixture/object ids the picked object must not touch during transit (e.g. bin walls)."
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "pose": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pos": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "rpy_deg": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3, "description": "Fixed-axis roll/pitch/yaw in degrees." }
+      }
+    },
+    "randomize_range": {
+      "type": "object",
+      "description": "Uniform-random override for a pose field, sampled with the scenario's top-level seed.",
+      "additionalProperties": false,
+      "properties": {
+        "pos_range": {
+          "type": "array", "minItems": 3, "maxItems": 3,
+          "items": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+          "description": "[[xmin,xmax],[ymin,ymax],[zmin,zmax]]"
+        },
+        "yaw_range_deg": {
+          "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2,
+          "description": "[min,max] yaw-only randomization (objects are assumed to rest flat)."
+        }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "required": ["id", "shape", "size", "pose"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "shape": { "type": "string", "enum": ["box", "cylinder"] },
+        "size": {
+          "type": "array", "items": { "type": "number" }, "minItems": 1, "maxItems": 3,
+          "description": "MuJoCo half-extent convention: box=[hx,hy,hz], cylinder=[radius,half_height]."
+        },
+        "pose": { "$ref": "#/$defs/pose" },
+        "color_rgba": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 }
+      }
+    },
+    "object": {
+      "type": "object",
+      "required": ["id", "shape", "size", "mass_kg", "pose"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "shape": { "type": "string", "enum": ["box", "cylinder", "sphere"] },
+        "size": {
+          "type": "array", "items": { "type": "number" }, "minItems": 1, "maxItems": 3,
+          "description": "MuJoCo half-extent convention: box=[hx,hy,hz], cylinder=[radius,half_height], sphere=[radius]."
+        },
+        "mass_kg": { "type": "number", "exclusiveMinimum": 0 },
+        "friction": {
+          "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3,
+          "description": "[sliding, torsional, rolling], defaults to MuJoCo defaults if omitted."
+        },
+        "pose": { "$ref": "#/$defs/pose" },
+        "randomize": { "$ref": "#/$defs/randomize_range" },
+        "color_rgba": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 },
+        "graspable": { "type": "boolean", "default": true, "description": "Whether the runner should register a candidate suction weld for this object." }
+      }
+    }
+  }
+}

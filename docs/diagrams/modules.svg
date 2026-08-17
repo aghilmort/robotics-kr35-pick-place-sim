@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 700" width="1300" height="700" role="img" aria-label="Python module dependency graph">
+  <title>Python module dependency graph</title>
+  
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#898781"/>
+    </marker>
+    <marker id="arrowInk" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e34948"/>
+    </marker>
+    <marker id="arrowViolet" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a3aa7"/>
+    </marker>
+    <marker id="arrowMagenta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.2" markerHeight="6.2" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e87ba4"/>
+    </marker>
+    <marker id="arrowCritical" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d03b3b"/>
+    </marker>
+    <marker id="arrowGood" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0ca30c"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1300" height="700" fill="#fcfcfb"/>
+<rect x="40.0" y="17.0" width="15.0" height="15.0" rx="4" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="40.0" y="17.0" width="5" height="15.0" rx="3" fill="#2a78d6"/>
+<text x="63.0" y="29.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">module</text>
+<rect x="138.8" y="17.0" width="15.0" height="15.0" rx="4" fill="#fcfcfb" stroke="#898781" stroke-width="1.3" stroke-dasharray="3,2.3"/>
+<text x="161.8" y="29.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">generated / data file</text>
+<path d="M560,22 L610,22" fill="none" stroke="#52514e" stroke-width="1.8" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="620.0" y="27.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">imports (runtime)</text>
+<path d="M780,22 L830,22" fill="none" stroke="#4a3aa7" stroke-width="1.8" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,4" marker-end="url(#arrowViolet)"/>
+<text x="840.0" y="27.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">generates (offline)</text>
+<rect x="410.0" y="55.0" width="230.0" height="85.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="410.0" y="55.0" width="6" height="85.0" rx="3" fill="#2a78d6"/>
+<text x="428.0" y="81.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">runner.py</text>
+<text x="428.0" y="105.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">CLI entrypoint: validate,</text>
+<text x="428.0" y="121.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">build, run, batch, report</text>
+<rect x="130.0" y="210.0" width="210.0" height="95.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="130.0" y="210.0" width="6" height="95.0" rx="3" fill="#eb6834"/>
+<text x="148.0" y="236.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">scene_builder.py</text>
+<text x="148.0" y="260.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">YAML dict -&gt; compiled</text>
+<text x="148.0" y="276.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">MuJoCo model via MjSpec</text>
+<text x="148.0" y="292.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">+ SceneContext</text>
+<rect x="710.0" y="210.0" width="210.0" height="95.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="710.0" y="210.0" width="6" height="95.0" rx="3" fill="#1baf7a"/>
+<text x="728.0" y="236.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">trajectory.py</text>
+<text x="728.0" y="260.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">waypoint state machine,</text>
+<text x="728.0" y="276.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">suction engage/release,</text>
+<text x="728.0" y="292.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">success evaluation</text>
+<rect x="80.0" y="365.0" width="200.0" height="95.0" rx="8" fill="#fcfcfb" stroke="#898781" stroke-width="1.25" stroke-dasharray="4,3"/>
+<text x="94.0" y="389.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" font-weight="700" fill="#0b0b0b" text-anchor="start">kr35_r1840_3_hw.xml</text>
+<text x="94.0" y="412.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#52514e" text-anchor="start">robot/ (generated)</text>
+<text x="94.0" y="427.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#52514e" text-anchor="start">compiled once, loaded</text>
+<text x="94.0" y="443.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#52514e" text-anchor="start">via MjSpec.from_file()</text>
+<rect x="730.0" y="365.0" width="190.0" height="95.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="730.0" y="365.0" width="6" height="95.0" rx="3" fill="#eda100"/>
+<text x="748.0" y="391.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">ik.py</text>
+<text x="748.0" y="415.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">damped-least-squares IK</text>
+<text x="748.0" y="431.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">+ random-restart</text>
+<text x="748.0" y="447.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">fallback</text>
+<rect x="370.0" y="365.0" width="250.0" height="95.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="370.0" y="365.0" width="6" height="95.0" rx="3" fill="#4a3aa7"/>
+<text x="388.0" y="391.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">build_kr35_mjcf.py</text>
+<text x="388.0" y="415.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">robot/ — KUKA xacro joint/</text>
+<text x="388.0" y="431.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">mesh/inertial data -&gt; MJCF;</text>
+<text x="388.0" y="447.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">also exports JOINTS, SUCTION_SITE_LOCAL_POS</text>
+<rect x="980.0" y="365.0" width="250.0" height="95.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="980.0" y="365.0" width="6" height="95.0" rx="3" fill="#e34948"/>
+<text x="998.0" y="391.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">planner.py</text>
+<text x="998.0" y="415.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">joint-space RRT-Connect +</text>
+<text x="998.0" y="431.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">real MuJoCo collision checks —</text>
+<text x="998.0" y="447.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">transit leg only, see §5</text>
+<rect x="240.0" y="560.0" width="760.0" height="80.0" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.16)" stroke-width="1.25"/>
+<rect x="240.0" y="560.0" width="6" height="80.0" rx="3" fill="#e87ba4"/>
+<text x="258.0" y="586.0" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14.5" font-weight="700" fill="#0b0b0b" text-anchor="start">geometry.py</text>
+<text x="258.0" y="610.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#52514e" text-anchor="start">quaternion / pose compose, invert, relative_pose — shared by scene_builder, ik, trajectory, and planner</text>
+<path d="M420.0,140.0 L420.0,160.0 L235.0,160.0 L235.0,210.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="350.0" y="175.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="start">build_model()</text>
+<path d="M630.0,140.0 L630.0,160.0 L815.0,160.0 L815.0,210.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="655.0" y="175.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="start">run_episode()</text>
+<path d="M235.0,305.0 L180.0,365.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="215.5" y="335.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">MjSpec.from_file()</text>
+<path d="M815.0,305.0 L825.0,365.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="837.0" y="335.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="start">solve_ik_multistart()</text>
+<path d="M920.0,257.5 L960.0,257.5 L960.0,340.0 L1105.0,340.0 L1105.0,365.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="966.0" y="249.5" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="start">plan_path()</text>
+<path d="M785.0,305.0 L785.0,340.0 L555.0,340.0 L555.0,365.0" fill="none" stroke="#52514e" stroke-width="1.7" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="777.0" y="334.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10.5" font-weight="400" fill="#898781" text-anchor="end">JOINTS, SUCTION_SITE_LOCAL_POS</text>
+<path d="M370.0,412.5 L280.0,412.5" fill="none" stroke="#4a3aa7" stroke-width="1.8" stroke-opacity="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,4" marker-end="url(#arrowViolet)"/>
+<path d="M300.0,305.0 L300.0,560.0" fill="none" stroke="#e87ba4" stroke-width="1.3" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,3.5" marker-end="url(#arrowMagenta)"/>
+<path d="M495.0,460.0 L495.0,560.0" fill="none" stroke="#e87ba4" stroke-width="1.3" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,3.5" marker-end="url(#arrowMagenta)"/>
+<path d="M760.0,460.0 L760.0,490.0 L700,490.0 L700,560.0" fill="none" stroke="#e87ba4" stroke-width="1.3" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,3.5" marker-end="url(#arrowMagenta)"/>
+<path d="M790.0,305.0 L790.0,345.0 L650,345.0 L650,560.0" fill="none" stroke="#e87ba4" stroke-width="1.3" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,3.5" marker-end="url(#arrowMagenta)"/>
+<path d="M1105.0,460.0 L1105.0,505.0 L620,505.0 L620,560.0" fill="none" stroke="#e87ba4" stroke-width="1.3" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,3.5" marker-end="url(#arrowMagenta)"/>
+<text x="650.0" y="660.0" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="11.5" font-weight="400" fill="#898781" text-anchor="middle">pure-math helpers — no MuJoCo calls, no side effects; every quaternion in the codebase is (w, x, y, z)</text>
+</svg>

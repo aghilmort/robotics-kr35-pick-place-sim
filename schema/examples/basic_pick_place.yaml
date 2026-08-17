@@ -1,0 +1,78 @@
+# A single box on a table, picked by suction and placed onto a tray.
+# All poses are in the robot's world frame; base_link's joint_1 pivot sits
+# at world origin, z=0 (see robot/build_kr35_mjcf.py). Table/tray heights
+# are lower here than this project's earlier KR16 version: KR35's real
+# base_link mesh puts the shoulder (joint_1) only ~0.26m off the floor --
+# there's no invented pedestal lifting the whole arm up the way the old
+# capsule-based KR16 model had (see build_kr35_mjcf.py's module docstring).
+name: basic_pick_place
+description: >
+  Pick a 5cm cube off a table and place it centered on a tray, ~0.9m away.
+seed: 42
+
+robot:
+  model: kr35_r1840_3_hw
+  base_pose:
+    pos: [0, 0, 0]
+    rpy_deg: [0, 0, 0]
+  home_joint_positions: [0, -0.5, 1.0, 0, 0.4, 0]
+  end_effector: suction
+  suction:
+    max_payload_kg: 2.0
+    engage_max_distance_m: 0.01
+    engage_max_misalignment_deg: 15
+
+scene:
+  ground_friction: [1.0, 0.005, 0.0001]
+  fixtures:
+    - id: table
+      # A thin worksurface slab, not a solid block: schema fixtures are a
+      # single box/cylinder with no separate legs, so a full-height solid
+      # table would occupy most of the space the arm needs to sweep through
+      # to reach the top -- fine for a real (mostly-open) table, badly wrong
+      # for a solid cube of that same footprint.
+      shape: box
+      size: [0.35, 0.35, 0.04]          # half-extents -> top surface at z=0.5
+      pose:
+        pos: [1.0, -0.4, 0.46]
+        rpy_deg: [0, 0, 0]
+      color_rgba: [0.55, 0.4, 0.25, 1.0]
+    - id: tray
+      shape: box
+      size: [0.25, 0.25, 0.02]          # top surface at z=0.04
+      pose:
+        pos: [1.0, 0.5, 0.02]
+        rpy_deg: [0, 0, 0]
+      color_rgba: [0.2, 0.3, 0.6, 1.0]
+
+  objects:
+    - id: cube1
+      shape: box
+      size: [0.025, 0.025, 0.025]       # 5cm cube
+      mass_kg: 0.15
+      friction: [1.0, 0.005, 0.0001]
+      pose:
+        pos: [1.0, -0.4, 0.525]          # resting on the table top
+        rpy_deg: [0, 0, 15]
+      randomize:
+        pos_range: [[0.9, 1.1], [-0.5, -0.3], [0.525, 0.525]]
+        yaw_range_deg: [-45, 45]
+      color_rgba: [0.8, 0.15, 0.15, 1.0]
+      graspable: true
+
+task:
+  pick:
+    object_id: cube1
+    approach_axis: [0, 0, -1]
+  place:
+    target_fixture_id: tray
+  motion:
+    approach_height_m: 0.18
+    joint_speed_scale: 0.4
+
+success_criteria:
+  position_tolerance_m: 0.02
+  orientation_tolerance_deg: 20
+  settle_time_s: 0.5
+  max_sim_time_s: 20.0
+  forbidden_contacts: [table]

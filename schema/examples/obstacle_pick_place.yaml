@@ -1,0 +1,98 @@
+# Same table -> tray pick-and-place as basic_pick_place.yaml, but with a
+# wall fixture standing directly in the straight-line corridor between them
+# -- placed in the ~0.3m gap between the table's near edge and the tray's
+# near edge, thin in X (easy to go around sideways) but tall enough that
+# "just fly higher" isn't a fix either. This is the scenario the old
+# fixed-altitude transit heuristic could not handle -- proving the
+# RRT-Connect planner (runner/planner.py) actually earns its keep, not just
+# a same-behavior refactor.
+#
+# Table/tray/wall heights are lower here than this project's earlier KR16
+# version -- see basic_pick_place.yaml's comment: KR35's real base_link mesh
+# puts the shoulder only ~0.26m off the floor, with no invented pedestal
+# lifting the whole arm the way the old capsule-based KR16 model had.
+name: obstacle_pick_place
+description: >
+  Pick a 5cm cube off a table and place it on a tray ~0.9m away, with a
+  1.2m-tall wall standing directly between them that a fixed-height transit
+  waypoint cannot clear or duck under -- only a real path search that can
+  route sideways around it succeeds.
+seed: 42
+
+robot:
+  model: kr35_r1840_3_hw
+  base_pose:
+    pos: [0, 0, 0]
+    rpy_deg: [0, 0, 0]
+  home_joint_positions: [0, -0.5, 1.0, 0, 0.4, 0]
+  end_effector: suction
+  suction:
+    max_payload_kg: 2.0
+    engage_max_distance_m: 0.01
+    engage_max_misalignment_deg: 15
+
+scene:
+  ground_friction: [1.0, 0.005, 0.0001]
+  fixtures:
+    - id: table
+      shape: box
+      size: [0.35, 0.35, 0.04]          # half-extents -> top surface at z=0.5
+      pose:
+        pos: [1.0, -0.4, 0.46]
+        rpy_deg: [0, 0, 0]
+      color_rgba: [0.55, 0.4, 0.25, 1.0]
+    - id: tray
+      shape: box
+      size: [0.25, 0.25, 0.02]          # top surface at z=0.04
+      pose:
+        pos: [1.0, 0.5, 0.02]
+        rpy_deg: [0, 0, 0]
+      color_rgba: [0.2, 0.3, 0.6, 1.0]
+    - id: wall
+      # Sits in the free ~0.3m gap between the table's near edge (y=-0.05)
+      # and the tray's near edge (y=0.25), centered at y=0.10, half_y=0.12
+      # so it doesn't overlap either fixture's footprint. Thin in X
+      # (half_x=0.05) so there's room to go around it sideways; 1.2m tall
+      # (half_z=0.6, floor to z=1.2) so going straight over it isn't a
+      # reasonable option either -- well above the pick/place hover height
+      # (table top 0.5 + 0.18m approach = 0.68m) but still within KR35's
+      # own workspace (unlike the old KR16 scenario's 1.6m wall, which
+      # relied on that build's invented 0.75m pedestal to even make sense).
+      shape: box
+      size: [0.05, 0.12, 0.6]
+      pose:
+        pos: [1.0, 0.10, 0.6]
+        rpy_deg: [0, 0, 0]
+      color_rgba: [0.3, 0.3, 0.3, 1.0]
+
+  objects:
+    - id: cube1
+      shape: box
+      size: [0.025, 0.025, 0.025]       # 5cm cube
+      mass_kg: 0.15
+      friction: [1.0, 0.005, 0.0001]
+      pose:
+        pos: [1.0, -0.4, 0.525]          # resting on the table top
+        rpy_deg: [0, 0, 15]
+      randomize:
+        pos_range: [[0.9, 1.1], [-0.5, -0.3], [0.525, 0.525]]
+        yaw_range_deg: [-45, 45]
+      color_rgba: [0.8, 0.15, 0.15, 1.0]
+      graspable: true
+
+task:
+  pick:
+    object_id: cube1
+    approach_axis: [0, 0, -1]
+  place:
+    target_fixture_id: tray
+  motion:
+    approach_height_m: 0.18
+    joint_speed_scale: 0.4
+
+success_criteria:
+  position_tolerance_m: 0.02
+  orientation_tolerance_deg: 20
+  settle_time_s: 0.5
+  max_sim_time_s: 20.0
+  forbidden_contacts: [table, wall]

@@ -27,6 +27,12 @@ runner/
   runner.py               CLI: validate, run, batch, optional MP4 video
 ```
 
+## Prerequisites
+
+```
+pip install mujoco scipy imageio[ffmpeg] 
+```
+
 ## Running it
 
 ```

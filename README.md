@@ -54,7 +54,7 @@ holding the picked cube.
 
 <!-- ![KR35 arm carrying the picked cube, routing sideways around the wall obstacle toward the tray](renders/kr35_obstacle_demo.gif) -->
 
-<img src="renders/kr35_obstacle_demo.gif" width="500" alt="KR35 arm carrying the picked cube, routing sideways around the wall obstacle toward the tray">
+<img src="./renders/kr35_obstacle_demo.gif" width="500" alt="KR35 arm carrying the picked cube, routing sideways around the wall obstacle toward the tray">
 
 ## Design overview
 

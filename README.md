@@ -52,11 +52,7 @@ A batch run prints a summary with `success_rate` and a `failure_reasons` histogr
 arm sideways around a wall standing between the table and the tray, while
 holding the picked cube.
 
-<video src="renders/kr35_obstacle_demo.mp4" controls width="480">
-  Your viewer can't play inline video -- see <code>renders/kr35_obstacle_demo.mp4</code> directly.
-</video>
-
-![KR35 arm mid-transit, holding the picked cube, routing around the wall obstacle toward the tray](renders/kr35_obstacle_demo_frame.png)
+![KR35 arm carrying the picked cube, routing sideways around the wall obstacle toward the tray](renders/kr35_obstacle_demo.gif)
 
 ## Design overview
 

@@ -80,8 +80,3 @@ holding the picked cube.
   MuJoCo collision checking, rather than a hand-picked "fly higher"
   waypoint -- see `schema/examples/obstacle_pick_place.yaml` and the demo
   above.
-
-The debugging history behind these choices -- the `.dae`-to-`.stl` mesh
-conversion, a scipy euler-convention bug, and the actuator torque-limit
-tuning story referenced in "Known limitations" below -- is kept in the
-team's internal working notes rather than published here.

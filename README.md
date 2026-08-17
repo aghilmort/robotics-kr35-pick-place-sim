@@ -40,6 +40,7 @@ cd runner
 python3 runner.py ../schema/examples/basic_pick_place.yaml
 python3 runner.py ../schema/examples/basic_pick_place.yaml --trials 30 --seed-from 0
 python3 runner.py ../schema/examples/basic_pick_place.yaml --video out.mp4
+python3 runner.py ../schema/examples/obstacle_pick_place.yaml --video out_obstacle.mp4
 ```
 
 Exit code is 0 on success (or all trials succeeding in batch mode), 1 otherwise.

@@ -49,7 +49,7 @@ holding the picked cube.
   Your viewer can't play inline video -- see <code>renders/kr35_obstacle_demo.mp4</code> directly.
 </video>
 
-<!-- ![KR35 arm mid-transit, holding the picked cube, routing around the wall obstacle toward the tray](renders/kr35_obstacle_demo_frame.png) -->
+![KR35 arm mid-transit, holding the picked cube, routing around the wall obstacle toward the tray](renders/kr35_obstacle_demo_frame.png)
 
 ## Design overview
 
